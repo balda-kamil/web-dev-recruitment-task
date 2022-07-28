@@ -17,9 +17,9 @@ Design system (font, font sizes and colors) is already prepared. You can preview
 4. Component should be adapted for mobile devices. The views for these devices are shown in figma.
 5. One of the accordions should always be visible.
 6. The active and hover state is handled according to the mocks.
-7. You should implement simple and smooth animations as you transition between accordions, design choices are yours :)
 
-Optional: Add functional / unit tests with testing library of your choice.
+Optional: Add simple and smooth animations as you transition between accordions, design choices are yours :)
+Optional: Add functional / unit tests using React Testing Library
 
 
 Good luck and do not hesitate to ask in case of any questions!

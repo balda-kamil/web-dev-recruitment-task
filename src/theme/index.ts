@@ -1,5 +1,7 @@
 const colors = {
     BLACK: '#080F1A',
+    WHITE: '#fff',
+    GRAY_50: '#F5F7F9',
 };
 
 const typography = {
@@ -11,14 +13,19 @@ const typography = {
         },
     },
     content: {
-        PL: {
+        UI24: {
             fontSize: '24px',
             lineHeight: '32px',
             letterSpacing: '-0.02em',
         },
-        PM: {
+        UI20: {
             fontSize: '20px',
             lineHeight: '32px',
+            letterSpacing: '-0.01em',
+        },
+        UI16: {
+            fontSize: '16px',
+            lineHeight: '24px',
             letterSpacing: '-0.01em',
         },
     },
