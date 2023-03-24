@@ -9,6 +9,8 @@ The file is located in the main folder under the name `tidio-mockup.fig`.
 
 Design system (font, font sizes and colors) is already prepared. You can preview it in the file `theme/index.ts`.
 
+We appreciate code that is written manually, so avoid including extra dependencies unless they are essential.
+
 ## Definition of done:
 
 1. Component should be rendered on route `/accordion`.
