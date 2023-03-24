@@ -13,6 +13,7 @@ interface ChatbotImage {
 }
 
 interface ChatbotWidgetData {
+    id: number;
     title: string;
     description: string;
     icon: string;
@@ -36,6 +37,7 @@ const chatbotsApiHandler: NextApiHandler = (request: NextApiRequest, response: N
             description: "Explore new ways to capture leads and generate more sales. Discover some of our most popular sales chatbots templates:",
             widget: [
                 {
+                    id: 1,
                     title: 'Discount for new/returning visitors',
                     description:
                         'Set up personalized messages offering a discount to new and returning visitors.',
@@ -55,6 +57,7 @@ const chatbotsApiHandler: NextApiHandler = (request: NextApiRequest, response: N
                     },
                 },
                 {
+                    id: 2,
                     title: 'Product recommendation',
                     description: 'Sell more by recommending hot deals and cross-sell offers.',
                     icon: '/images/product-recommendation-icon.svg',
@@ -73,6 +76,7 @@ const chatbotsApiHandler: NextApiHandler = (request: NextApiRequest, response: N
                     },
                 },
                 {
+                    id: 3,
                     title: 'Abandoned cart saver',
                     description:
                         'Stop 60% of your customers from abandoning their carts by offering a discount.',
