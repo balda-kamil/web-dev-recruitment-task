@@ -4,6 +4,17 @@ const colors = {
     GRAY_50: '#F5F7F9',
 };
 
+const bp = {
+    sm: 360,
+    md: 768,
+    lg: 992,
+    xl: 1200
+}
+
+export const mq = (n: keyof typeof bp) => {
+    return `@media (min-width: ${bp[n]}px)`;
+}
+
 const typography = {
     heading: {
         H1: {

@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
+import Container from "../../components/Container/Container";
 
 const Accordion: NextPage = () => {
-    return <div>
+    return <Container>
         AKORDEON
-    </div>
+    </Container>
 }
 
 export default Accordion;

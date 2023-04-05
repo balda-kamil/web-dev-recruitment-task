@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
+import Container from "../components/Container/Container";
 const IndexPage: NextPage = () => {
-    return <div>
+    return <Container>
         main page
-    </div>
+    </Container>
 };
 
 export default IndexPage;
