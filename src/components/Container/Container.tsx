@@ -13,11 +13,11 @@ const ContainerElement = styled.div`
   }
 `
 
-interface Test {
+interface ContainerProps {
     children: ReactNode
 }
 
-const Container = ({children} : Test) => {
+const Container = ({children} : ContainerProps) => {
     return (
         <ContainerElement>
             {children}

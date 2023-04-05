@@ -1,9 +1,10 @@
-import type { NextPage } from 'next';
+import type {NextPage} from 'next';
 import Container from "../../components/Container/Container";
+import Heading from "../../components/Heading/Heading";
 
 const Accordion: NextPage = () => {
     return <Container>
-        AKORDEON
+        <Heading text="Chatbots can generate sales" align="center"/>
     </Container>
 }
 

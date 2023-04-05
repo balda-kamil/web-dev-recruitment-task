@@ -12,7 +12,7 @@ const bp = {
 }
 
 export const mq = (n: keyof typeof bp) => {
-    return `@media (min-width: ${bp[n]}px)`;
+    return `@media (max-width: ${bp[n]}px)`;
 }
 
 const typography = {
@@ -22,6 +22,10 @@ const typography = {
             lineHeight: '64px',
             letterSpacing: '-0.03em',
         },
+        H1_MOBILE: {
+            fontSize: '40px',
+            lineHeight: '48px',
+        }
     },
     content: {
         UI24: {
