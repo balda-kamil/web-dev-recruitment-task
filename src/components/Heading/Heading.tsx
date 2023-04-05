@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import {mq} from "../../theme";
+import {mq, theme} from "../../theme";
 
 type StyledHeadingProps = Pick<HeadingProps, 'align'>
 
@@ -8,6 +8,7 @@ const StyledHeading = styled('h1')<StyledHeadingProps>(
     props => ({
         ...props.theme.typography.heading.H1,
         textAlign: props.align || 'left',
+        color: theme.color.BLACK,
         [mq('md')]: {
             ...props.theme.typography.heading.H1_MOBILE,
         }
