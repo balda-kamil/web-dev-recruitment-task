@@ -1,34 +1,33 @@
-import type { NextPage } from 'next';
+import type { GetStaticProps } from 'next';
 import Container from '../../components/Container/Container';
-import Heading from '../../components/Heading/Heading';
-import Paragraph from '../../components/Paragraph/Paragraph';
-import styled from '@emotion/styled';
-import { mq } from '../../theme';
+import { AccordionPageTypes } from '../../types/AccordionTypes';
+import { getAccordionPageData } from '../../client/services/accordionPage/getAccordionPageData';
 import Accordion from '../../components/Accordion/Accordion';
+import Hero from '../../components/Hero/Hero';
 
-const AccordionPage: NextPage = () => {
-    const MobileTextBreak = styled('span')({
-        display: 'block',
-
-        [mq('md')]: {
-            display: 'none',
-        },
-    });
+const AccordionPage = ({ data }: AccordionPageTypes) => {
     return (
         <>
             <Container>
-                <Heading text="Chatbots can generate sales" align="center" marginBottom />
-
-                <Paragraph align="center" big>
-                    Explore new ways to capture leads and generate more sales.
-                    <MobileTextBreak /> Discover some of our most popular sales chatbots templates:
-                </Paragraph>
+                <Hero title={data.header} description={data.description} />
             </Container>
             <Container>
-                <Accordion />
+                <Accordion data={data.widget} />
             </Container>
         </>
     );
 };
 
 export default AccordionPage;
+
+export const getStaticProps: GetStaticProps<AccordionPageTypes> = async () => {
+    const res = await getAccordionPageData();
+
+    const data: AccordionPageTypes = await res.json();
+
+    return {
+        props: {
+            ...data,
+        },
+    };
+};

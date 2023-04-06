@@ -8,6 +8,7 @@ const StyledParagraph = styled('p')<StyledHeadingProps>((props) => ({
     ...(!!props.big ? props.theme.typography.content.UI18 : props.theme.typography.content.UI16),
     textAlign: props.align || 'left',
     margin: 0,
+    fontWeight: props.weight || 400,
 
     [mq('md')]: {
         ...(!!props.big
@@ -21,6 +22,7 @@ interface ParagraphProps {
     align?: 'center' | 'right';
     big?: boolean;
     paddingInline?: boolean;
+    weight?: 400 | 500 | 600;
 }
 
 const Paragraph = ({ children, ...props }: ParagraphProps) => {
