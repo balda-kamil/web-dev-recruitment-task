@@ -1,33 +1,41 @@
-import React from "react";
-import Link from "next/link";
-import styled from "@emotion/styled";
-
+import React, { useId } from 'react';
+import Link from 'next/link';
+import styled from '@emotion/styled';
 
 const StyledMenuList = styled.ul`
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  margin: 40px auto;
-  padding: 0;
-  list-style-type: none;
-  justify-content: center;
-`
-const Header: React.FC = () => {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin: 40px auto;
+    padding: 0;
+    list-style-type: none;
+    justify-content: center;
+`;
+const Header = () => {
+    const ID = useId();
+
+    const mockedPages = [
+        {
+            href: '/',
+            name: 'Main Page',
+        },
+        {
+            href: '/accordion',
+            name: 'Accordion',
+        },
+    ];
+
     return (
         <StyledMenuList>
-            <li>
-                <button>
-                    <Link href="/">Main Page</Link>
-                </button>
-            </li>
-            <li>
-                <button>
-                    <Link href="/accordion">Accordion</Link>
-                </button>
-            </li>
+            {mockedPages.map((item) => (
+                <li key={`${ID}_${item.href}`}>
+                    <button>
+                        <Link href={item.href}>{item.name}</Link>
+                    </button>
+                </li>
+            ))}
         </StyledMenuList>
-        )
-
+    );
 };
 
 export default Header;

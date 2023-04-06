@@ -1,5 +1,5 @@
 import { css, Global } from '@emotion/react';
-import {theme} from "./index";
+import { theme } from './index';
 
 const fontLight = css({
     '@font-face': {
@@ -50,23 +50,27 @@ const globalCss = css({
     'h1, h2, h3, h4, h5, h6': {
         marginTop: '0',
         marginBottom: '0',
+        color: theme.color.BLACK,
     },
     '*': { boxSizing: 'border-box' },
-    'button': {
+    button: {
         padding: '5px 12px',
         textAlign: 'center',
         color: theme.color.BLACK,
         background: theme.color.WHITE,
         border: `1px solid ${theme.color.BLACK}`,
-        borderRadius: '4px'
+        borderRadius: '4px',
     },
-    'a': {
+    p: {
+        color: theme.color.BLACK,
+    },
+    a: {
         textDecoration: 'none',
-        color: 'inherit'
+        color: 'inherit',
     },
-    'li': {
-        listStyleType: "none"
-    }
+    li: {
+        listStyleType: 'none',
+    },
 });
 
 const GlobalStyles = <Global styles={[fontLight, fontMedium, fontSemiBold, globalCss]} />;
