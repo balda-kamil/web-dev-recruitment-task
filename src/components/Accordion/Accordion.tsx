@@ -14,24 +14,30 @@ type AccordionProps = {
 const Accordion = ({ data }: AccordionProps) => {
     const { openAccordionIndex, setOpenAccordionIndex } = useContext(AccordionContext);
 
-    const handleClick = (id: number) => {
-        const isOpen = openAccordionIndex === id;
+    const handleClick = (index: number) => {
+        const isOpen = openAccordionIndex === index;
 
         if (isOpen) return;
 
-        setOpenAccordionIndex(id);
+        setOpenAccordionIndex(index);
     };
 
     return (
         <>
-            {data.map((item) => {
+            {data.map((item, index) => {
+                const isExpanded = openAccordionIndex === index;
+                const heightLarge = item.image.large.height;
+                const heightSmall = item.image.small.height;
+                const widthLarge = item.image.large.width;
+                const widthSmall = item.image.small.width;
+
                 return (
                     <AccordionItem
                         key={item.id}
-                        isExpanded={openAccordionIndex === item.id}
-                        onClick={() => handleClick(item.id)}
+                        isExpanded={isExpanded}
+                        onClick={() => handleClick(index)}
                     >
-                        <AccordionContentWrapper>
+                        <AccordionContentWrapper isExpanded={isExpanded}>
                             <AccordionImageWrapper>
                                 <Image src={item.icon} alt={item.title} fill />
                             </AccordionImageWrapper>
@@ -40,20 +46,26 @@ const Accordion = ({ data }: AccordionProps) => {
                                 <Paragraph>{item.description}</Paragraph>
                             </div>
                         </AccordionContentWrapper>
-                        <StyledImage
-                            src={item.image.large.url}
-                            alt={item.image.alt}
-                            width={item.image.large.width}
-                            height={item.image.large.height}
-                            size={'large'}
-                        />
-                        <StyledImage
-                            src={item.image.small.url}
-                            alt={item.image.alt}
-                            width={item.image.small.width}
-                            height={item.image.small.height}
-                            size={'small'}
-                        />
+                        <ImagesWrapper
+                            isExpanded={isExpanded}
+                            heightLarge={heightLarge}
+                            heightSmall={heightSmall}
+                        >
+                            <StyledImage
+                                src={item.image.large.url}
+                                alt={item.image.alt}
+                                width={widthLarge}
+                                height={heightLarge}
+                                size={'large'}
+                            />
+                            <StyledImage
+                                src={item.image.small.url}
+                                alt={item.image.alt}
+                                width={widthSmall}
+                                height={heightSmall}
+                                size={'small'}
+                            />
+                        </ImagesWrapper>
                     </AccordionItem>
                 );
             })}
@@ -64,18 +76,25 @@ const Accordion = ({ data }: AccordionProps) => {
 export default Accordion;
 
 const AccordionItem = styled.div<{ isExpanded: boolean }>`
-    box-shadow: 0 2px 8px rgba(0, 27, 71, 0.28);
+    box-shadow: ${(props) => (props.isExpanded ? '0 2px 8px rgba(0, 27, 71, .28)' : 'unset')};
     border-radius: 16px;
-    margin-block: 16px;
-    padding-bottom: 32px;
+    margin: ${(props) => (props.isExpanded ? '16px 0 26px 0' : '16px 0')};
+    padding-bottom: ${(props) => (props.isExpanded ? '32px' : '0')};
     cursor: pointer;
-    transition: background-color 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    transition-property: background, box-shadow, margin-top, margin-bottom;
     background-color: ${(props) =>
         props.isExpanded ? props.theme.color.WHITE : props.theme.color.GRAY_50};
+
+    ${mq('md')} {
+        background-color: ${(props) => props.theme.color.WHITE};
+        margin: 16px 0;
+    }
 `;
 
-const AccordionContentWrapper = styled.div`
-    padding: 24px 30px 32px 30px;
+const AccordionContentWrapper = styled.div<{ isExpanded: boolean }>`
+    padding: ${(props) => (props.isExpanded ? '24px 30px 32px' : '24px')};
+    transition: padding 0.5s ease-out;
     display: flex;
     gap: 24px;
 `;
@@ -97,4 +116,12 @@ const StyledImage = styled(Image)<{ size: 'large' | 'small' }>`
     ${mq('md')} {
         display: ${(props) => (props.size === 'large' ? 'block' : 'none')};
     }
+`;
+
+const ImagesWrapper = styled.div<{ isExpanded: boolean; heightSmall: number; heightLarge: number }>`
+    height: ${(props) => (props.isExpanded ? `${props.heightSmall}px` : 0)};
+    opacity: ${(props) => (props.isExpanded ? 1 : 0)};
+    transition: all 0.5s ease-out;
+    transition-property: height, opacity;
+    overflow: hidden;
 `;

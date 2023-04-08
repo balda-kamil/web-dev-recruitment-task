@@ -1,13 +1,13 @@
 import { createContext, ReactNode, useState } from 'react';
 
 export interface AccordionContextProps {
-    openAccordionIndex: number;
+    openAccordionIndex: number | string;
     setOpenAccordionIndex: (index: number) => void;
 }
 
 // create context
 export const AccordionContext = createContext<AccordionContextProps>({
-    openAccordionIndex: 1,
+    openAccordionIndex: 0,
     setOpenAccordionIndex: () => {},
 });
 
@@ -17,7 +17,7 @@ interface AccordionProviderProps {
 
 // provide context
 export const AccordionProvider = ({ children }: AccordionProviderProps) => {
-    const [openAccordionIndex, setOpenAccordionIndex] = useState(1);
+    const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
 
     return (
         <AccordionContext.Provider value={{ openAccordionIndex, setOpenAccordionIndex }}>
