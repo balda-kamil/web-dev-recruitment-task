@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styled from '@emotion/styled';
 import { mq } from '../../theme';
 import Paragraph from '../Paragraph/Paragraph';
+import Heading, { HeadingTypes } from '../Heading/Heading';
 
 type AccordionProps = {
     data: WidgetInterface[];
@@ -14,7 +15,7 @@ const Accordion = ({ data }: AccordionProps) => {
             {data.map((item) => {
                 return (
                     <div key={item.id}>
-                        <AccordionItemTitle weight={600}>{item.title}</AccordionItemTitle>
+                        <Heading text={item.title} as={HeadingTypes.H4} />
                         <Paragraph>{item.description}</Paragraph>
                         <div style={{ position: 'relative', width: 50, height: 50 }}>
                             <Image src={item.icon} alt={item.title} fill />
@@ -49,11 +50,3 @@ const StyledImage = styled(Image)<{ large?: boolean; small?: boolean }>`
         display: ${(props) => (props.large ? 'block' : 'none')};
     }
 `;
-
-const AccordionItemTitle = styled(Paragraph)((props) => ({
-    ...props.theme.typography.content.UI20,
-
-    [mq('md')]: {
-        ...props.theme.typography.content.UI24,
-    },
-}));

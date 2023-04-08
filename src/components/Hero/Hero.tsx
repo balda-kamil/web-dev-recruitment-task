@@ -1,4 +1,4 @@
-import Heading from '../../components/Heading/Heading';
+import Heading, { HeadingTypes } from '../../components/Heading/Heading';
 import Paragraph from '../../components/Paragraph/Paragraph';
 import styled from '@emotion/styled';
 
@@ -9,7 +9,7 @@ interface HeroInterface {
 const Hero = ({ title, description }: HeroInterface) => {
     return (
         <HeroWrapper>
-            <Heading text={title} align="center" />
+            <Heading text={title} align="center" as={HeadingTypes.H1} />
             <Paragraph align="center" big>
                 {description}
             </Paragraph>

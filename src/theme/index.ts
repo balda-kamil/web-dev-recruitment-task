@@ -25,6 +25,17 @@ const typography = {
         H1_MOBILE: {
             fontSize: '40px',
             lineHeight: '48px',
+            letterSpacing: '-0.03em',
+        },
+        H4: {
+            fontSize: '24px',
+            lineHeight: '32px',
+            letterSpacing: '-0.02em',
+        },
+        H4_MOBILE: {
+            fontSize: '20px',
+            lineHeight: '32px',
+            letterSpacing: '-0.01em',
         },
     },
     content: {
