@@ -4,6 +4,7 @@ import { AccordionPageTypes } from '../../types/AccordionTypes';
 import { getAccordionPageData } from '../../client/services/accordionPage/getAccordionPageData';
 import Accordion from '../../components/Accordion/Accordion';
 import Hero from '../../components/Hero/Hero';
+import { AccordionProvider } from '../../components/Accordion/AccordionContext';
 
 const AccordionPage = ({ data }: AccordionPageTypes) => {
     return (
@@ -12,7 +13,9 @@ const AccordionPage = ({ data }: AccordionPageTypes) => {
                 <Hero title={data.header} description={data.description} />
             </Container>
             <Container>
-                <Accordion data={data.widget} />
+                <AccordionProvider>
+                    <Accordion data={data.widget} />
+                </AccordionProvider>
             </Container>
         </>
     );
