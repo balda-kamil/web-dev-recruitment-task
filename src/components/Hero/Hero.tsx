@@ -1,5 +1,5 @@
-import Heading, { HeadingTypes } from '../../components/Heading/Heading';
-import Paragraph from '../../components/Paragraph/Paragraph';
+import Heading, { HeadingTypes } from 'components/Heading/Heading';
+import Paragraph from 'components/Paragraph/Paragraph';
 import styled from '@emotion/styled';
 
 interface HeroInterface {

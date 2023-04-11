@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import Container from '../components/Container/Container';
-import Heading, { HeadingTypes } from '../components/Heading/Heading';
+import Container from 'components/Container/Container';
+import Heading, { HeadingTypes } from 'components/Heading/Heading';
 
 const IndexPage: NextPage = () => {
     return (

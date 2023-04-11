@@ -1,12 +1,12 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import {Html, Head, Main, NextScript} from 'next/document';
 
 export default function Document() {
     return (
         <Html>
-            <Head />
+            <Head><title>Chatbots Tidio</title></Head>
             <body>
-                <Main />
-                <NextScript />
+            <Main/>
+            <NextScript/>
             </body>
         </Html>
     );

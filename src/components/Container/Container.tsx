@@ -9,10 +9,11 @@ const ContainerElement = styled.div`
 
     ${mq('md')} {
         padding-inline: 40px;
+        margin-block: 80px;
     }
 
     ${mq('lg')} {
-        margin-block: 120px 80px;
+        margin-block: 80px;
         padding-inline: 92px;
     }
 `;

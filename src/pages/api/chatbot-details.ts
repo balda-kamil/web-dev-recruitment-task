@@ -96,6 +96,7 @@ const chatbotsApiHandler: NextApiHandler = (request: NextApiRequest, response: N
                         },
                     },
                 },
+
             ],
         },
     };
