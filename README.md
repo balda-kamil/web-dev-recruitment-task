@@ -1,3 +1,11 @@
+# How to run the project
+1. go to main folder `yarn install`
+2. run development mode `yarn dev`
+3. in a couple of seconds app is available on http://localhost:3000
+4. to check the built application, type `yarn build` and `yarn start` 
+
+____________________________    
+
 # Tidio Recruitment Task
 
 **Please do not fork the repo, clone it and put it in your own github / gitlab.**
