@@ -7,7 +7,7 @@ import { theme } from '@/theme/index';
 import GlobalStyles from '@/theme/globalStyles';
 import { beforeEach } from '@jest/globals';
 
-import * as mockedData from './mockedData.json';
+import * as mockedData from '../../mockedData.json';
 
 describe('Accordion page', () => {
     beforeEach(() => {
@@ -28,13 +28,8 @@ describe('Accordion page', () => {
     });
 
     it('Should have accordion', () => {
-        const widget = mockedData.data.widget[0];
         const accordion = screen.getByTestId('accordion-component');
-        // const accordionHeading = screen.getByTestId('accordion-heading-h4');
-        // const accordionSubHeading = screen.getByTestId('accordion-subheading');
 
         expect(accordion).toBeInTheDocument();
-        // expect(accordionHeading).toHaveTextContent(widget.title);
-        // expect(accordionSubHeading).toHaveTextContent(widget.description);
     });
 });
