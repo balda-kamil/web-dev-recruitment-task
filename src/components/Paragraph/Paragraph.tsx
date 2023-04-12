@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { mq } from '../../theme';
+import { mq } from '@/theme/index';
 
-type StyledHeadingProps = Omit<ParagraphProps, 'text'>;
+type StyledHeadingProps = Omit<ParagraphProps, 'testId'>;
 
 const StyledParagraph = styled('p')<StyledHeadingProps>((props) => ({
     ...(!!props.big ? props.theme.typography.content.UI18 : props.theme.typography.content.UI16),
@@ -18,6 +18,7 @@ const StyledParagraph = styled('p')<StyledHeadingProps>((props) => ({
 }));
 
 interface ParagraphProps {
+    testId: string;
     children: ReactNode;
     align?: 'center' | 'right';
     big?: boolean;
@@ -25,8 +26,12 @@ interface ParagraphProps {
     weight?: 400 | 500 | 600;
 }
 
-const Paragraph = ({ children, ...props }: ParagraphProps) => {
-    return <StyledParagraph {...props}>{children}</StyledParagraph>;
+const Paragraph = ({ children, testId, ...props }: ParagraphProps) => {
+    return (
+        <StyledParagraph {...props} data-testid={testId}>
+            {children}
+        </StyledParagraph>
+    );
 };
 
 export default Paragraph;

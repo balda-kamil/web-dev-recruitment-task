@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { mq } from '../../theme';
+import { mq } from '@/theme/index';
 
-type StyledHeadingProps = Omit<HeadingProps, 'text'>;
+type StyledHeadingProps = Omit<HeadingProps, 'text' | 'testId'>;
 
 // easy to add other heading tags is needed normal project
 
@@ -34,12 +34,17 @@ export enum HeadingTypes {
 
 interface HeadingProps {
     text: string;
+    testId: string;
     as: HeadingTypes;
     align?: 'center' | 'right';
 }
 
-const Heading = ({ text, ...props }: HeadingProps) => {
-    return <StyledHeading {...props}>{text}</StyledHeading>;
+const Heading = ({ text, testId, ...props }: HeadingProps) => {
+    return (
+        <StyledHeading data-testid={`${testId}-${props.as}`} {...props}>
+            {text}
+        </StyledHeading>
+    );
 };
 
 export default Heading;

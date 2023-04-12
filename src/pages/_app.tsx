@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from '@emotion/react';
-import { theme } from '../theme';
-import GlobalStyles from '../theme/globalStyles';
-import PageLayout from '../layouts/PageLayout/PageLayout';
+import { theme } from '@/theme/index';
+import GlobalStyles from '@/theme/globalStyles';
+import PageLayout from '@/layouts/PageLayout/PageLayout';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (

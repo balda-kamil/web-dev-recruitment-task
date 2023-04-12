@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { mq } from '../../theme';
+import {mq} from "@/theme/index";
 
 const ContainerElement = styled.div`
     width: 100%;
@@ -8,7 +8,7 @@ const ContainerElement = styled.div`
     padding-inline: 14px;
 
     ${mq('md')} {
-        padding-inline: 40px;
+        padding-inline: 40px;   
         margin-block: 80px;
     }
 

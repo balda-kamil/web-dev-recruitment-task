@@ -1,11 +1,11 @@
 import type { GetStaticProps } from 'next';
-import Container from 'components/Container/Container';
-import { AccordionPageTypes } from 'types/AccordionTypes';
-import { getAccordionPageData } from 'client/services/accordionPage/getAccordionPageData';
-import Hero from 'components/Hero/Hero';
-import { AccordionProvider } from 'components/Accordion/AccordionContext';
+import Container from "@/components/Container/Container";
+import { AccordionPageTypes } from '@/types/AccordionTypes';
+import { getAccordionPageData } from '@/client/services/accordionPage/getAccordionPageData';
+import Hero from '@/components/Hero/Hero';
+import { AccordionProvider } from '@/components/Accordion/AccordionContext';
 import React from "react";
-import Accordion from "components/Accordion/Accordion";
+import Accordion from "@/components/Accordion/Accordion";
 
 const AccordionPage = ({ data }: AccordionPageTypes) => {
     return (
